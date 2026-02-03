@@ -107,7 +107,7 @@ export default async function Home() {
                       {/* キーワードタグ（右下） */}
                       <div className="flex flex-wrap gap-1 justify-end">
                         {faq.keywords.slice(0, 2).map((kw) => (
-                          <span key={kw.id} className="text-xs text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">
+                          <span key={kw.keyword.id} className="text-xs text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">
                             #{kw.keyword.name}
                           </span>
                         ))}
@@ -155,7 +155,7 @@ export default async function Home() {
                       {/* キーワードタグ（右下） */}
                       <div className="flex flex-wrap gap-1 justify-end">
                         {faq.keywords.slice(0, 2).map((kw) => (
-                          <span key={kw.id} className="text-xs text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">
+                          <span key={kw.keyword.id} className="text-xs text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">
                             #{kw.keyword.name}
                           </span>
                         ))}
