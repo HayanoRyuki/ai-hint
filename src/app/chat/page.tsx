@@ -138,7 +138,6 @@ export default function ChatPage() {
           <nav className="flex gap-6 text-sm">
             <Link href="/faq" className="text-gray-600 hover:text-gray-900">Q&A一覧</Link>
             <Link href="/chat" className="text-primary-600 font-medium">AIに相談</Link>
-            <Link href="/admin" className="text-gray-400 hover:text-gray-600">管理</Link>
           </nav>
         </div>
       </header>

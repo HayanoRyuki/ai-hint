@@ -50,7 +50,6 @@ export default async function Home() {
           <nav className="flex gap-6 text-sm">
             <a href="/faq" className="text-gray-600 hover:text-gray-900">Q&A一覧</a>
             <a href="/chat" className="text-gray-600 hover:text-gray-900">AIに相談</a>
-            <a href="/admin" className="text-gray-400 hover:text-gray-600">管理</a>
           </nav>
         </div>
       </header>
