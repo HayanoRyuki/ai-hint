@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import prisma from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 // Claude API クライアント
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
