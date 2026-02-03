@@ -2,6 +2,8 @@ import { Megaphone, Palette, Briefcase, MessageCircle, Users, BookOpen, BarChart
 import prisma from '@/lib/prisma';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 const iconMap = {
   'Megaphone': Megaphone,
   'Palette': Palette,
