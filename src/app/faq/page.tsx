@@ -3,6 +3,8 @@ import Link from 'next/link';
 import prisma from '@/lib/prisma';
 import { Megaphone, Palette, Briefcase, MessageCircle, Users, BookOpen, BarChart3, Search, FolderOpen, Key, Lightbulb } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 const iconMap = {
   'Megaphone': Megaphone,
   'Palette': Palette,

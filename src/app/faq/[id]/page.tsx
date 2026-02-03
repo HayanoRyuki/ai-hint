@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 import { Megaphone, Palette, Briefcase, MessageCircle, Users, BookOpen, BarChart3, HelpCircle, Lightbulb, Key } from 'lucide-react';
 import './animations.css';
 
+export const dynamic = 'force-dynamic';
+
 const iconMap = {
   'Megaphone': Megaphone,
   'Palette': Palette,
