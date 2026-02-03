@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./data.db"
+}
+
+// 領域マスタ
+model Domain {
+  id          String   @id @default(cuid())
+  slug        String   @unique  // "marketing", "recruiting", etc.
+  name        String             // "Marketing / PR"
+  nameJa      String             // "マーケティング／広報"
+  emoji       String             // "📢"
+  description String?
+  faqs        Faq[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// 解決キーワードマスタ
+model Keyword {
+  id          String       @id @default(cuid())
+  slug        String       @unique  // "efficiency", "standardization", etc.
+  name        String                // "効率化"
+  category    String                // "効率化" "平準化" "正確化" etc.
+  description String?               // 詳細説明
+  faqs        FaqKeyword[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+// Q&A本体
+model Faq {
+  id          String       @id @default(cuid())
+  domainId    String
+  domain      Domain       @relation(fields: [domainId], references: [id])
+  question    String       // 悩み（共感ポイント）
+  episode     String?      // 詳細エピソード
+  answer      String       // AIでこう解決できます
+  keywords    FaqKeyword[]
+  status      String       @default("draft") // "draft" | "published"
+  order       Int          @default(0)       // 表示順
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+// Q&A ↔ キーワード 中間テーブル（多対多）
+model FaqKeyword {
+  faqId     String
+  faq       Faq     @relation(fields: [faqId], references: [id], onDelete: Cascade)
+  keywordId String
+  keyword   Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+
+  @@id([faqId, keywordId])
+}
+
+// チャットログ（分析用）
+model ChatLog {
+  id          String   @id @default(cuid())
+  sessionId   String
+  userMessage String
+  aiResponse  String
+  matchedFaqId String?
+  createdAt   DateTime @default(now())
+}
