@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 // FAQ一覧取得（管理用：すべてのステータス含む）
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);

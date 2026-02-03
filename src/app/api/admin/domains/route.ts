@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+// ビルド時の静的生成をスキップ
+export const dynamic = 'force-dynamic';
+
 // 領域一覧取得
 export async function GET() {
   try {

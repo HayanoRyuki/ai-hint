@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Settings, Megaphone, Palette, Briefcase, MessageCircle, Users, BookOpen, BarChart3 } from 'lucide-react';
 
+// ビルド時の静的生成をスキップ（データベースが必要なため）
+export const dynamic = 'force-dynamic';
+
 const iconMap = {
   'Megaphone': Megaphone,
   'Palette': Palette,
